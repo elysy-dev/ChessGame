@@ -33,7 +33,11 @@ public class Board {
         printBoardPretty();
     }
 
-    boolean movePiece(int initialX, int initialY, int moveX, int moveY){
+    boolean movePiece(int[] move){
+        int initialX = move[0];
+        int initialY = move[1];
+        int moveX = move[2];
+        int moveY = move[3];
         if(this.board[initialY][initialX] != null && this.board[initialY][initialX].moveIsLegal(this, moveY, moveX)
             && this.board[initialY][initialX].isWhite() == whiteTurn){
             Piece p = this.board[initialY][initialX];

@@ -6,16 +6,17 @@ public class Main {
 
         System.out.println("start");
         board.printBoardPretty();
-
+        int[] move = UserInput.getPlayerMove();
 
         System.out.println("W: move 1");
-        board.movePiece(1, 6, 1, 4);
+        board.movePiece(move);
 
-
+        int[] move1 = UserInput.getPlayerMove();
         System.out.println("B: move 1");
-        board.movePiece(2, 6, 2, 4);
+        board.movePiece(move1);
 
+        int[] move2 = UserInput.getPlayerMove();
         System.out.println("W: move 2, capture pawn");
-        board.movePiece(1, 4, 2, 3);
+        board.movePiece(move2);
     }
 }
