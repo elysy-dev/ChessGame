@@ -36,7 +36,7 @@ public class Pawn extends Piece{
             System.out.println("capture");
             return true;
         }
-        System.out.println("invalid white move");
+        System.out.println("invalid move");
         return false;
 
         //TODO: when all other piece class made, add logic for switching pawn to other piece at end of board
