@@ -31,6 +31,5 @@ public class Main {
         System.out.println("move 6 - capture pawn");
         //board.printBoardIndexed();
         board.printBoardPretty();
-
     }
 }

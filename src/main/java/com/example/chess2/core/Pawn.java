@@ -30,7 +30,6 @@ public class Pawn extends Piece{
             return true;
         }
 
-        //TODO: fix
         //capture
         if (Math.abs(moveX - curXLoc) == 1 && spacesUp == 1 &&
                 board.getBoard()[moveY][moveX] != null && board.getBoard()[moveY][moveX].isWhite() != curColor) {
@@ -39,5 +38,7 @@ public class Pawn extends Piece{
         }
         System.out.println("invalid white move");
         return false;
+
+        //TODO: when all other piece class made, add logic for switching pawn to other piece at end of board
     }
 }
