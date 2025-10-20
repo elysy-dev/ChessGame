@@ -43,7 +43,7 @@ public class Board {
             p.setYLoc(moveX);
 
             this.board[moveY][moveX] = p;
-            this.whiteTurn = false;
+            this.whiteTurn = !this.whiteTurn;
             printMovedBoardAndFlipped();
             return true;
         }

@@ -5,8 +5,6 @@ public class Main {
         Board board = new Board();
 
         System.out.println("start");
-        System.out.println("board[6][2] xLoc: "+ board.getBoard()[6][2].getXLoc());
-        System.out.println("board[6][2] yLoc: "+ board.getBoard()[6][2].getYLoc());
         board.printBoardPretty();
 
 
@@ -15,11 +13,9 @@ public class Main {
 
 
         System.out.println("B: move 1");
-        System.out.println("board[6][2] xLoc: "+ board.getBoard()[6][2].getXLoc());
-        System.out.println("board[6][2] yLoc: "+ board.getBoard()[6][2].getYLoc());
-        /*
-        board.printBoardIndexed();
         board.movePiece(2, 6, 2, 4);
-         */
+
+        System.out.println("W: move 2, capture pawn");
+        board.movePiece(1, 4, 2, 3);
     }
 }
