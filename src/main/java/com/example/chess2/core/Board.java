@@ -57,14 +57,13 @@ public class Board {
         for(int i = 0; i < Constants.BOARD_HEIGHT; i++){
             for(int j = 0; j < Constants.BOARD_WIDTH; j++){
                 boardFlipped[i][j] = this.board[7-i][j];
+                if(boardFlipped[i][j] != null) {
+                    boardFlipped[i][j].setXLoc(i);
+                    boardFlipped[i][j].setYLoc(j);
+                }
             }
         }
-        //this.board = boardFlipped;
-        for(int i = 0; i < Constants.BOARD_HEIGHT; i++){
-            for(int j = 0; j < Constants.BOARD_WIDTH; j++){
-                this.board[i][j] = boardFlipped[i][j];
-            }
-        }
+        this.board = boardFlipped;
     }
 
     public Piece[][] initBoard(){
