@@ -86,6 +86,12 @@ public class Board {
                 else if(i == 7 && j == 0 || i == 7 && j == 7){
                     board[i][j] = new Rook(i, j, true);
                 }
+                else if(i == 7 && j == 1 || i == 7 && j == 6){
+                    board[i][j] = new Horse(i, j, true);
+                }
+                else if(i == 0 && j == 1 || i == 0 && j == 6){
+                    board[i][j] = new Horse(i, j, false);
+                }
                 else {
                     board[i][j] = null;
                 }
@@ -140,6 +146,14 @@ public class Board {
                     }
                     else{
                         System.out.print(" -R");
+                    }
+                }
+                if(this.board[i][j] instanceof Horse) {
+                    if(this.board[i][j].isWhite()) {
+                        System.out.print(" +H");
+                    }
+                    else{
+                        System.out.print(" -H");
                     }
                 }
                 if(this.board[i][j] == null){
