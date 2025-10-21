@@ -12,9 +12,12 @@ public class Main {
             move = UserInput.getPlayerMove();
             board.movePiece(move);
             while(!board.movePiece(move)){
+                board.flipBoard();
                 move = UserInput.getPlayerMove();
                 board.movePiece(move);
+                board.flipBoard();
             }
+            board.flipBoard();
         }
     }
 }

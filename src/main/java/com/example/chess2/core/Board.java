@@ -34,10 +34,10 @@ public class Board {
     }
 
     boolean movePiece(int[] move){
-        int initialX = move[0];
-        int initialY = move[1];
-        int moveX = move[2];
-        int moveY = move[3];
+        int initialX = move[0], initialY = move[1], moveX = move[2], moveY = move[3];
+        if(initialY > 7 || initialY < 0 || initialX > 7 || initialX < 0){
+            return false;
+        }
         if(this.board[initialY][initialX] != null && this.board[initialY][initialX].moveIsLegal(this, moveY, moveX)
             && this.board[initialY][initialX].isWhite() == whiteTurn){
             Piece p = this.board[initialY][initialX];
@@ -92,6 +92,12 @@ public class Board {
                 else if(i == 0 && j == 1 || i == 0 && j == 6){
                     board[i][j] = new Horse(i, j, false);
                 }
+                else if(i == 7 && j == 2 || i == 7 && j == 5){
+                    board[i][j] = new Bishop(i, j, true);
+                }
+                else if(i == 0 && j == 2 || i == 0 && j == 5){
+                    board[i][j] = new Bishop(i, j, false);
+                }
                 else {
                     board[i][j] = null;
                 }
@@ -118,6 +124,14 @@ public class Board {
                     }
                     else{
                         System.out.print("-R: " + "(" + i + ", " + j + ") ");
+                    }
+                }
+                if(this.board[i][j] instanceof Bishop) {
+                    if(this.board[i][j].isWhite()) {
+                        System.out.print("+B: " + "(" + i + ", " + j + ") ");
+                    }
+                    else{
+                        System.out.print("-B: " + "(" + i + ", " + j + ") ");
                     }
                 }
                 if(this.board[i][j] == null){
@@ -154,6 +168,14 @@ public class Board {
                     }
                     else{
                         System.out.print(" -H");
+                    }
+                }
+                if(this.board[i][j] instanceof Bishop) {
+                    if(this.board[i][j].isWhite()) {
+                        System.out.print(" +B");
+                    }
+                    else{
+                        System.out.print(" -B");
                     }
                 }
                 if(this.board[i][j] == null){
