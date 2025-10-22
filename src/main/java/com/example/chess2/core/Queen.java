@@ -1,19 +1,30 @@
 package com.example.chess2.core;
 
-public class Rook extends Piece{
-    public Rook(int xLoc, int yLoc, boolean isWhite) {
+public class Queen extends Piece{
+    public Queen(int xLoc, int yLoc, boolean isWhite) {
         super(xLoc, yLoc, isWhite);
     }
 
     @Override
     boolean moveIsLegal(Board board, int moveX, int moveY) {
-        if(!checkBounds(moveX, moveY)){
+        //out of bounds
+        if(!checkBounds(moveY, moveX)){
             return false;
         }
-        int curXLoc = this.getXLoc();
-        int curYLoc = this.getYLoc();
+
+        int curYLoc = this.getXLoc();
+        int curXLoc = this.getYLoc();
         boolean curColor = this.isWhite();
 
+        //capturing own piece
+        if(board.getBoard()[moveY][moveX] != null && board.getBoard()[moveY][moveX].isWhite() == this.isWhite()){
+            return false;
+        }
+        //bishop
+        if(Math.abs(moveY - curYLoc) == Math.abs(moveX - curXLoc)) {
+            return true;
+        }
+        //rook
         //checks that move only chances exactly 1 of the x and y locations
         if((moveY == curYLoc && moveX == curXLoc) ||
                 (moveY != curYLoc && moveX != curXLoc)){

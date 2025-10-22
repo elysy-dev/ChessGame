@@ -98,6 +98,18 @@ public class Board {
                 else if(i == 0 && j == 2 || i == 0 && j == 5){
                     board[i][j] = new Bishop(i, j, false);
                 }
+                else if(i == 0 && j == 3){
+                    board[i][j] = new Queen(i, j, false);
+                }
+                else if(i == 7 && j == 3){
+                    board[i][j] = new Queen(i, j, true);
+                }
+                else if(i == 0 && j == 4){
+                    board[i][j] = new King(i, j, false);
+                }
+                else if(i == 7 && j == 4){
+                    board[i][j] = new King(i, j, true);
+                }
                 else {
                     board[i][j] = null;
                 }
@@ -134,6 +146,22 @@ public class Board {
                         System.out.print("-B: " + "(" + i + ", " + j + ") ");
                     }
                 }
+                if(this.board[i][j] instanceof Queen) {
+                    if(this.board[i][j].isWhite()) {
+                        System.out.print("+Q: " + "(" + i + ", " + j + ") ");
+                    }
+                    else{
+                        System.out.print("-Q: " + "(" + i + ", " + j + ") ");
+                    }
+                }
+                if(this.board[i][j] instanceof King) {
+                    if(this.board[i][j].isWhite()) {
+                        System.out.print("+K: " + "(" + i + ", " + j + ") ");
+                    }
+                    else{
+                        System.out.print("-K: " + "(" + i + ", " + j + ") ");
+                    }
+                }
                 if(this.board[i][j] == null){
                     System.out.print("X: " + "(" + i + ", " + j + ") ");
                 }
@@ -143,47 +171,84 @@ public class Board {
         System.out.println();
     }
 
+    public void printWhitePiece(String letter){
+        System.out.print(ConsoleColors.PURPLE + " " + letter + " " + ConsoleColors.RESET);
+    }
+    public void printBlackPiece(String letter){
+        System.out.print(ConsoleColors.CYAN_BRIGHT + ConsoleColors.BLACK + " " + letter + " " + ConsoleColors.RESET);
+    }
+
     public void printBoardPretty(){
+        System.out.println();
         for(int i = 0; i < Constants.BOARD_HEIGHT; i++){
+            System.out.print("   ");
             for(int j = 0; j < Constants.BOARD_WIDTH; j++){
+                if(j == 0){
+                    System.out.print(ConsoleColors.RED);
+                    System.out.print(8-i);
+                    System.out.print(ConsoleColors.RESET);
+                }
                 if(this.board[i][j] instanceof Pawn) {
                     if(this.board[i][j].isWhite()) {
-                        System.out.print(" +P");
+                        printWhitePiece("♙");
                     }
                     else{
-                        System.out.print(" -P");
+                        printBlackPiece("♟");
                     }
                 }
                 if(this.board[i][j] instanceof Rook) {
                     if(this.board[i][j].isWhite()) {
-                        System.out.print(" +R");
+                        printWhitePiece("♖");
                     }
                     else{
-                        System.out.print(" -R");
+                        printBlackPiece("♜");
                     }
                 }
                 if(this.board[i][j] instanceof Horse) {
                     if(this.board[i][j].isWhite()) {
-                        System.out.print(" +H");
+                        printWhitePiece("♘");
                     }
                     else{
-                        System.out.print(" -H");
+                        printBlackPiece("♞");
                     }
                 }
                 if(this.board[i][j] instanceof Bishop) {
                     if(this.board[i][j].isWhite()) {
-                        System.out.print(" +B");
+                        printWhitePiece("♗");
                     }
                     else{
-                        System.out.print(" -B");
+                        printBlackPiece("♝");
+                    }
+                }
+                if(this.board[i][j] instanceof Queen) {
+                    if(this.board[i][j].isWhite()) {
+                        printWhitePiece("♕");
+                    }
+                    else{
+                        printBlackPiece("♛");
+                    }
+                }
+                if(this.board[i][j] instanceof Queen) {
+                    if(this.board[i][j].isWhite()) {
+                        printWhitePiece("♔");
+                    }
+                    else{
+                        printBlackPiece("♚");
                     }
                 }
                 if(this.board[i][j] == null){
-                    System.out.print(" X ");
+                    if(i + j % 2 == 0){
+                        printWhitePiece(" ");
+                    }
+                    else{
+                        printBlackPiece(" ");
+                    }
                 }
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.print(ConsoleColors.BLUE);
+        System.out.println("     a  b  c  d  e  f  g  h ");
+        System.out.println(ConsoleColors.RESET);
     }
 }

@@ -5,6 +5,7 @@ public class Pawn extends Piece{
         super(xLoc, yLoc, isWhite);
     }
 
+    //TODO : fix error - pawns can't "touch"
     @Override
     boolean moveIsLegal(Board board, int moveY, int moveX){
         if(!checkBounds(moveY, moveX)){
@@ -24,7 +25,7 @@ public class Pawn extends Piece{
         }
         //move forward 2
         if (moveX == curXLoc && spacesUp == 2 &&
-                board.getBoard()[moveY-1][moveX] == null && board.getBoard()[moveY][moveX] == null &&
+                board.getBoard()[moveY+1][moveX] == null && board.getBoard()[moveY][moveX] == null &&
                 curYLoc == 6) {
             System.out.println("forward 2");
             return true;

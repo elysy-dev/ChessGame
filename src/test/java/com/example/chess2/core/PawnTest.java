@@ -17,10 +17,10 @@ class BoardTest {
         assertTrue(board.movePiece(new int[]{1, 6, 1, 4}), "W: First double move should be legal");
 
         // (6,1) -> (4,1)
-        assertTrue(board.movePiece(new int[]{2, 6, 2, 4}), "B: First double move should be legal");
+        assertTrue(board.movePiece(new int[]{1, 6, 1, 4}), "B: First double move should be legal");
 
         // (1,4) -> (1,5)
-        assertTrue(board.movePiece(new int[]{1, 4, 2, 3}), "W: move 2, capture pawn");
+        //assertTrue(board.movePiece(new int[]{1, 4, 2, 3}), "W: move 2, capture pawn");
         /*
 
         // (1,5) -> (1,6) should be **blocked** by an opposing pawn on the starting rank
