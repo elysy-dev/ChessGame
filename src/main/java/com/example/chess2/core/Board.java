@@ -28,10 +28,16 @@ public class Board {
     }
 
     void printMovedBoardAndFlipped(){
-        System.out.println("after move, pre flip");
+        System.out.println();
+        System.out.println("After move:");
         printBoardPretty();
-        System.out.println("after move, post flip");
         flipBoard();
+        if(this.whiteTurn) {
+            System.out.println("White turn:");
+        }
+        else{
+            System.out.println("Black turn:");
+        }
         printBoardPretty();
     }
 

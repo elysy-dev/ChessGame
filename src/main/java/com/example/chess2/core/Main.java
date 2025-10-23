@@ -5,7 +5,8 @@ public class Main {
 
         Board board = new Board();
 
-        System.out.println("start");
+        System.out.println();
+        System.out.println("Starting Chess 2.0");
         board.printBoardPretty();
         int[] move;
 
