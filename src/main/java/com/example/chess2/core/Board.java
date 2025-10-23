@@ -238,8 +238,8 @@ public class Board {
                     }
                 }
                 if(this.board[i][j] == null){
-                    if(i + j % 2 == 0){
-                        printWhitePiece("\u0020\u2009");
+                    if((i + j) % 2 == 0){
+                        printWhitePiece("\u0020\u2009\u2009");
                     }
                     else{
                         printBlackPiece("\u0020\u2009\u2009");
