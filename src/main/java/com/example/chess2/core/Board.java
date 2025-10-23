@@ -1,5 +1,7 @@
 package com.example.chess2.core;
 
+import java.util.Arrays;
+
 public class Board {
     private Piece[][] board;
     private boolean whiteTurn;
@@ -104,10 +106,10 @@ public class Board {
                 else if(i == 7 && j == 3){
                     board[i][j] = new Queen(i, j, true);
                 }
-                else if(i == 0 && j == 4){
+                else if(i == 0){
                     board[i][j] = new King(i, j, false);
                 }
-                else if(i == 7 && j == 4){
+                else if(i == 7){
                     board[i][j] = new King(i, j, true);
                 }
                 else {
@@ -228,7 +230,7 @@ public class Board {
                         printBlackPiece("♛");
                     }
                 }
-                if(this.board[i][j] instanceof Queen) {
+                if(this.board[i][j] instanceof King) {
                     if(this.board[i][j].isWhite()) {
                         printWhitePiece("♔");
                     }
@@ -248,7 +250,7 @@ public class Board {
             System.out.println();
         }
         System.out.print(ConsoleColors.BLUE);
-        System.out.println("     a  b  c  d  e  f  g  h ");
+        System.out.println("     a   b  c   d  e   f   g  h ");
         System.out.println(ConsoleColors.RESET);
     }
 }
