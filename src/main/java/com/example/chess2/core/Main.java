@@ -9,7 +9,7 @@ public class Main {
         board.printBoardPretty();
         int[] move;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 200; i++) {
             move = UserInput.getPlayerMove();
             while(!board.movePiece(move)){
                 board.flipBoard();

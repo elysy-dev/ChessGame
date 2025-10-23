@@ -240,17 +240,17 @@ public class Board {
                 }
                 if(this.board[i][j] == null){
                     if(i + j % 2 == 0){
-                        printWhitePiece(" ");
+                        printWhitePiece("\u0020\u2009");
                     }
                     else{
-                        printBlackPiece(" ");
+                        printBlackPiece("\u0020\u2009\u2009");
                     }
                 }
             }
             System.out.println();
         }
         System.out.print(ConsoleColors.BLUE);
-        System.out.println("     a   b  c   d  e   f   g  h ");
+        System.out.println("     a\u2009  \u2009\u2009b  \u2009c  \u2009\u2009d  \u2009\u2009e  \u2009\u2009f  \u2009g  \u2009\u2009h ");
         System.out.println(ConsoleColors.RESET);
     }
 }
