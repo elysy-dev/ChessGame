@@ -117,7 +117,6 @@ public class Board {
                 }
             }
         }
-        //TODO: implement logic for non pawn characters
         return board;
     }
 
@@ -198,7 +197,7 @@ public class Board {
                         printBlackPiece("♟");
                     }
                 }
-                if(this.board[i][j] instanceof Rook) {
+                if(this.board[i][j] instanceof Rook && !(this.board[i][j] instanceof Queen)) {
                     if(this.board[i][j].isWhite()) {
                         printWhitePiece("♖");
                     }
