@@ -20,7 +20,7 @@ public class Queen extends Rook{
             return false;
         }
         //bishop
-        if (Math.abs(moveY - curYLoc) == Math.abs(moveX - curXLoc)) {
+        if (Math.abs(moveY - curXLoc) == Math.abs(moveX - curYLoc)) {
             return true;
         }
         //calls Rook move logic
